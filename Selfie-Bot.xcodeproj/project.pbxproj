@@ -20,9 +20,9 @@
 		DB79462E1E59DA5300E25E82 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79462B1E59DA5300E25E82 /* GradientView.swift */; };
 		DB79462F1E59DA5300E25E82 /* PXPColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79462C1E59DA5300E25E82 /* PXPColorSpace.swift */; };
 		DB7946301E59DA5300E25E82 /* PXPGradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79462D1E59DA5300E25E82 /* PXPGradientColor.swift */; };
+		F68C6CA81E5AB35F0078C790 /* identityPoolID.txt in Resources */ = {isa = PBXBuildFile; fileRef = F68C6CA71E5AB35F0078C790 /* identityPoolID.txt */; };
 		F6B3E1151E56D668002CFF41 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6B3E1141E56D668002CFF41 /* testImage.jpg */; };
 		F6B3E1171E57125F002CFF41 /* RekognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3E1161E57125F002CFF41 /* RekognitionManager.swift */; };
-		F6B3E1191E5717D0002CFF41 /* identityPoolID.txt in Resources */ = {isa = PBXBuildFile; fileRef = F6B3E1181E5717D0002CFF41 /* identityPoolID.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,9 +42,9 @@
 		DB79462B1E59DA5300E25E82 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DB79462C1E59DA5300E25E82 /* PXPColorSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXPColorSpace.swift; sourceTree = "<group>"; };
 		DB79462D1E59DA5300E25E82 /* PXPGradientColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXPGradientColor.swift; sourceTree = "<group>"; };
+		F68C6CA71E5AB35F0078C790 /* identityPoolID.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = identityPoolID.txt; sourceTree = "<group>"; };
 		F6B3E1141E56D668002CFF41 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
 		F6B3E1161E57125F002CFF41 /* RekognitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RekognitionManager.swift; sourceTree = "<group>"; };
-		F6B3E1181E5717D0002CFF41 /* identityPoolID.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = identityPoolID.txt; sourceTree = "<group>"; };
 		F9751EE0EE157BEF94368CA1 /* Pods-Selfie-Bot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Selfie-Bot.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Selfie-Bot/Pods-Selfie-Bot.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,7 +101,7 @@
 				DB3A05161E56BD2B0062CBA3 /* LaunchScreen.storyboard */,
 				DB3A05191E56BD2B0062CBA3 /* Info.plist */,
 				F6B3E1161E57125F002CFF41 /* RekognitionManager.swift */,
-				F6B3E1181E5717D0002CFF41 /* identityPoolID.txt */,
+				F68C6CA71E5AB35F0078C790 /* identityPoolID.txt */,
 			);
 			path = "Selfie-Bot";
 			sourceTree = "<group>";
@@ -206,12 +206,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB7946221E599E0800E25E82 /* SelfieBot.scn in Resources */,
+				F68C6CA81E5AB35F0078C790 /* identityPoolID.txt in Resources */,
 				DB3A05181E56BD2B0062CBA3 /* LaunchScreen.storyboard in Resources */,
 				DB3A05151E56BD2B0062CBA3 /* Assets.xcassets in Resources */,
 				DB7946241E599E9E00E25E82 /* SelfieBotBaseColor.png in Resources */,
 				DB7946261E59A1F100E25E82 /* SelfieBot.dae in Resources */,
 				F6B3E1151E56D668002CFF41 /* testImage.jpg in Resources */,
-				F6B3E1191E5717D0002CFF41 /* identityPoolID.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
