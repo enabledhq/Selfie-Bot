@@ -36,12 +36,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         cameraButton.setTitle("PICS!", for: .normal)
         cameraButton.backgroundColor = .black
-        
+        cameraButton.layer.cornerRadius = 5
         cameraButton.snp.makeConstraints {
             make in
             
             make.bottom.equalTo(0).inset(10)
             make.centerX.equalTo(view)
+            make.width.equalTo(100)
+            make.height.equalTo(44)
         }
         
         cameraButton.addTarget(self, action: #selector(cameraButtonPressed(_:)), for: .touchUpInside)

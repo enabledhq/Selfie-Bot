@@ -48,7 +48,7 @@ class SelfieBotView: SCNView {
         }
         
         backgroundColor = .clear
-        antialiasingMode = .multisampling4X
+        antialiasingMode = .multisampling2X
         isUserInteractionEnabled = false
         
         scene?.physicsWorld.gravity = SCNVector3Zero
