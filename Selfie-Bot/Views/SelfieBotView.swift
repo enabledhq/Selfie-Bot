@@ -20,7 +20,7 @@ class SelfieBotView: SCNView {
     init(options: [String : Any]? = nil) {
         // Load Selfie Bot scene
         if let botScene = SCNScene(named: "SelfieBot.scn"),
-            let botNode = botScene.rootNode.childNode(withName: "SelfieBot", recursively: true),
+            let botNode = botScene.rootNode.childNode(withName: "SelfieBotRoot", recursively: true),
             let teethNode = botScene.rootNode.childNode(withName: "Lower_Teeth", recursively: true) {
             
             botNode.position = SCNVector3(x: 0, y: 2.4, z: 0)
