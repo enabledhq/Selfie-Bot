@@ -15,6 +15,7 @@ class SelfieBotView: SCNView {
     private let lowerTeeth: SCNNode
     
     private let lookingAt = SCNNode()
+    private let fieldNode = SCNNode()
     
     init(options: [String : Any]? = nil) {
         // Load Selfie Bot scene
@@ -25,11 +26,15 @@ class SelfieBotView: SCNView {
             botNode.position = SCNVector3(x: 0, y: 2.4, z: 0)
             
             botScene.rootNode.addChildNode(lookingAt)
-            lookingAt.position = SCNVector3(x: 0, y: 2.4, z: -5)
+            botScene.rootNode.addChildNode(fieldNode)
             
-            //botNode.rotation = SCNVector4(x: 0.1, y: 0, z: 0, w: 1.0)
-            //botNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 2, y: 0, z: 0, duration: 1.0)))
+            lookingAt.position = SCNVector3(x: 0, y: 2.4, z: -1)
             
+            let body = SCNPhysicsBody(type: .dynamic, shape: SCNPhysicsShape(geometry: SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0.0)))
+            body.damping = 0.9
+            body.allowsResting = false
+            lookingAt.physicsBody = body
+
             selfieBot = botNode
             lowerTeeth = teethNode
             
@@ -45,12 +50,16 @@ class SelfieBotView: SCNView {
         backgroundColor = .clear
         antialiasingMode = .multisampling4X
         isUserInteractionEnabled = false
+        
+        scene?.physicsWorld.gravity = SCNVector3Zero
     }
     
     func lookAt(point: CGPoint, duration: TimeInterval = 0.3) {
         
-        let world = unprojectPoint(SCNVector3(x: Float(point.x), y: Float(point.y), z: 0.98))        
-        lookingAt.runAction(SCNAction.move(to: world, duration: duration))
+        let world = unprojectPoint(SCNVector3(x: Float(point.x), y: Float(point.y), z: 0.985))
+        
+        fieldNode.physicsField = SCNPhysicsField.spring()
+        fieldNode.position = world
         
         //Close your mouth, Selfie-Bot
         let sequence = [SCNAction.wait(duration: duration), SCNAction.move(to: SCNVector3(x: 0, y: 0.016, z: 0), duration: duration/2.0)]
