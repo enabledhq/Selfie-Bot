@@ -96,20 +96,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            do {
-                let data = UIImageJPEGRepresentation(image, 0.7)
-                let request = AWSRekognitionDetectFacesRequest()
-                let image = AWSRekognitionImage()
-                image?.bytes = data
-                request?.image = image
-                AWSRekognition.default().detectFaces(request!).continueOnSuccessWith {
-                    $0.result?.faceDetails?.forEach {
-                        print($0.confidence)
-                    }
+            let data = UIImageJPEGRepresentation(image, 0.7)
+            let request = AWSRekognitionDetectFacesRequest()
+            let image = AWSRekognitionImage()
+            image?.bytes = data
+            request?.image = image
+            AWSRekognition.default().detectFaces(request!).continueOnSuccessWith {
+                $0.result?.faceDetails?.forEach {
+                    print($0.confidence!)
                 }
-                
-            } catch {
-                
             }
         }
         
