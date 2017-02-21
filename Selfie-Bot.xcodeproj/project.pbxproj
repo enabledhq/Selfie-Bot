@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		95EB2940F1379D2577264F79 /* Pods_Selfie_Bot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706B9E16A24E85F7D7DB92E3 /* Pods_Selfie_Bot.framework */; };
 		DB1D77941E5C755A00C82170 /* Snap.dae in Resources */ = {isa = PBXBuildFile; fileRef = DB1D77931E5C755A00C82170 /* Snap.dae */; };
+		DB1D77971E5C80B000C82170 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D77961E5C80B000C82170 /* UIImage+Orientation.swift */; };
 		DB3A050E1E56BD2B0062CBA3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3A050D1E56BD2B0062CBA3 /* AppDelegate.swift */; };
 		DB3A05101E56BD2B0062CBA3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB3A050F1E56BD2B0062CBA3 /* ViewController.swift */; };
 		DB3A05151E56BD2B0062CBA3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB3A05141E56BD2B0062CBA3 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 		06D8BB993DD9AA94B0F97A39 /* Pods-Selfie-Bot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Selfie-Bot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Selfie-Bot/Pods-Selfie-Bot.release.xcconfig"; sourceTree = "<group>"; };
 		706B9E16A24E85F7D7DB92E3 /* Pods_Selfie_Bot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Selfie_Bot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1D77931E5C755A00C82170 /* Snap.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = Snap.dae; sourceTree = "<group>"; };
+		DB1D77961E5C80B000C82170 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		DB3A050A1E56BD2B0062CBA3 /* Selfie-Bot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Selfie-Bot.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB3A050D1E56BD2B0062CBA3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB3A050F1E56BD2B0062CBA3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DB1D77951E5C80A300C82170 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DB1D77961E5C80B000C82170 /* UIImage+Orientation.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		DB3A05011E56BD2B0062CBA3 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +101,7 @@
 		DB3A050C1E56BD2B0062CBA3 /* Selfie-Bot */ = {
 			isa = PBXGroup;
 			children = (
+				DB1D77951E5C80A300C82170 /* Image */,
 				DB7946271E59CA0400E25E82 /* Actions */,
 				DB3A055C1E5709EC0062CBA3 /* Views */,
 				DB3A050D1E56BD2B0062CBA3 /* AppDelegate.swift */,
@@ -282,6 +293,7 @@
 				DB7946291E59CA1B00E25E82 /* SelfieBotCustomActions.swift in Sources */,
 				DB7946301E59DA5300E25E82 /* PXPGradientColor.swift in Sources */,
 				DB3A055E1E570A090062CBA3 /* SelfieBotView.swift in Sources */,
+				DB1D77971E5C80B000C82170 /* UIImage+Orientation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

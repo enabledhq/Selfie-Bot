@@ -13,6 +13,7 @@ class SelfieBotView: SCNView {
     
     private let selfieBot: SCNNode
     private let lowerTeeth: SCNNode
+    private let snap: SCNNode
     
     private let lookingAt = SCNNode()
     private let fieldNode = SCNNode()
@@ -21,7 +22,8 @@ class SelfieBotView: SCNView {
         // Load Selfie Bot scene
         if let botScene = SCNScene(named: "SelfieBot.scn"),
             let botNode = botScene.rootNode.childNode(withName: "SelfieBotRoot", recursively: true),
-            let teethNode = botScene.rootNode.childNode(withName: "Lower_Teeth", recursively: true) {
+            let teethNode = botScene.rootNode.childNode(withName: "Lower_Teeth", recursively: true),
+            let snapNode = botScene.rootNode.childNode(withName: "Snap", recursively: true) {
             
             botNode.position = SCNVector3(x: 0, y: 2.4, z: 0)
             
@@ -37,6 +39,7 @@ class SelfieBotView: SCNView {
 
             selfieBot = botNode
             lowerTeeth = teethNode
+            snap = snapNode
             
             selfieBot.constraints = [SCNLookAtConstraint(target: lookingAt)]
         
@@ -52,6 +55,16 @@ class SelfieBotView: SCNView {
         isUserInteractionEnabled = false
         
         scene?.physicsWorld.gravity = SCNVector3Zero
+    }
+    
+    //MARK: - Testing Image Setting
+    
+    func setSnapImage(_ image: UIImage) {
+        if let photoGeometry = snap.childNode(withName: "Photo", recursively: true)?.geometry,
+           let photoMaterial = photoGeometry.material(named: "Photo") {
+            
+            photoMaterial.diffuse.contents = image
+        }
     }
     
     func lookAt(point: CGPoint, duration: TimeInterval = 0.3) {
