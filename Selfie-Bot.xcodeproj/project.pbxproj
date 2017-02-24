@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		95EB2940F1379D2577264F79 /* Pods_Selfie_Bot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706B9E16A24E85F7D7DB92E3 /* Pods_Selfie_Bot.framework */; };
+		AEBD411337C700AE987DBBB5 /* AnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBD439F7DC7376AFD167A3D /* AnalysisView.swift */; };
 		DB1D77941E5C755A00C82170 /* Snap.dae in Resources */ = {isa = PBXBuildFile; fileRef = DB1D77931E5C755A00C82170 /* Snap.dae */; };
 		DB1D77971E5C80B000C82170 /* UIImage+Orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D77961E5C80B000C82170 /* UIImage+Orientation.swift */; };
 		DB1D779A1E5DB5CF00C82170 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB1D77991E5DB5CF00C82170 /* ChatView.swift */; };
@@ -25,6 +26,7 @@
 		DB79462E1E59DA5300E25E82 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79462B1E59DA5300E25E82 /* GradientView.swift */; };
 		DB79462F1E59DA5300E25E82 /* PXPColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79462C1E59DA5300E25E82 /* PXPColorSpace.swift */; };
 		DB7946301E59DA5300E25E82 /* PXPGradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79462D1E59DA5300E25E82 /* PXPGradientColor.swift */; };
+		F60A8A0A1E5EEF00009F0B58 /* ConfidenceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A8A091E5EEF00009F0B58 /* ConfidenceBar.swift */; };
 		F68C6CA81E5AB35F0078C790 /* identityPoolID.txt in Resources */ = {isa = PBXBuildFile; fileRef = F68C6CA71E5AB35F0078C790 /* identityPoolID.txt */; };
 		F6B3E1151E56D668002CFF41 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6B3E1141E56D668002CFF41 /* testImage.jpg */; };
 		F6B3E1171E57125F002CFF41 /* RekognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3E1161E57125F002CFF41 /* RekognitionManager.swift */; };
@@ -33,6 +35,7 @@
 /* Begin PBXFileReference section */
 		06D8BB993DD9AA94B0F97A39 /* Pods-Selfie-Bot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Selfie-Bot.release.xcconfig"; path = "Pods/Target Support Files/Pods-Selfie-Bot/Pods-Selfie-Bot.release.xcconfig"; sourceTree = "<group>"; };
 		706B9E16A24E85F7D7DB92E3 /* Pods_Selfie_Bot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Selfie_Bot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEBD439F7DC7376AFD167A3D /* AnalysisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalysisView.swift; sourceTree = "<group>"; };
 		DB1D77931E5C755A00C82170 /* Snap.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = Snap.dae; sourceTree = "<group>"; };
 		DB1D77961E5C80B000C82170 /* UIImage+Orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Orientation.swift"; sourceTree = "<group>"; };
 		DB1D77991E5DB5CF00C82170 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		DB79462B1E59DA5300E25E82 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		DB79462C1E59DA5300E25E82 /* PXPColorSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXPColorSpace.swift; sourceTree = "<group>"; };
 		DB79462D1E59DA5300E25E82 /* PXPGradientColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXPGradientColor.swift; sourceTree = "<group>"; };
+		F60A8A091E5EEF00009F0B58 /* ConfidenceBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidenceBar.swift; sourceTree = "<group>"; };
 		F68C6CA71E5AB35F0078C790 /* identityPoolID.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = identityPoolID.txt; sourceTree = "<group>"; };
 		F6B3E1141E56D668002CFF41 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
 		F6B3E1161E57125F002CFF41 /* RekognitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RekognitionManager.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 				DB79462A1E59DA5300E25E82 /* Decorative */,
 				DB3A055D1E570A090062CBA3 /* SelfieBotView.swift */,
 				DB1D77991E5DB5CF00C82170 /* ChatView.swift */,
+				AEBD439F7DC7376AFD167A3D /* AnalysisView.swift */,
+				F60A8A091E5EEF00009F0B58 /* ConfidenceBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -321,7 +327,9 @@
 				DB1D779D1E5DC70400C82170 /* SelfieBotState.swift in Sources */,
 				DB7946301E59DA5300E25E82 /* PXPGradientColor.swift in Sources */,
 				DB3A055E1E570A090062CBA3 /* SelfieBotView.swift in Sources */,
+				F60A8A0A1E5EEF00009F0B58 /* ConfidenceBar.swift in Sources */,
 				DB1D77971E5C80B000C82170 /* UIImage+Orientation.swift in Sources */,
+				AEBD411337C700AE987DBBB5 /* AnalysisView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
