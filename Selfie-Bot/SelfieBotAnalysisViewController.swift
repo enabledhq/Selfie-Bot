@@ -31,6 +31,7 @@ class SelfieBotAnalysisViewController: ViewController {
         
         selfieBotSaysLabel.textAlignment = .center
         selfieBotSaysLabel.text = "Selfie bot says"
+        selfieBotSaysLabel.font = UIFont.systemFont(ofSize: 17.0, weight: 1.0)
         
         qouteLabel.textAlignment = .center
         qouteLabel.text = viewModel.qoute
@@ -63,7 +64,7 @@ class SelfieBotAnalysisViewController: ViewController {
         qouteLabel.snp.makeConstraints {
             make in
             
-            make.left.right.equalTo(view).inset(50)
+            make.left.right.equalTo(view).inset(70)
             make.top.equalTo(selfieBotSaysLabel.snp.bottom).offset(10)
         }
         
