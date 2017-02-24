@@ -27,6 +27,8 @@
 		DB79462F1E59DA5300E25E82 /* PXPColorSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79462C1E59DA5300E25E82 /* PXPColorSpace.swift */; };
 		DB7946301E59DA5300E25E82 /* PXPGradientColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB79462D1E59DA5300E25E82 /* PXPGradientColor.swift */; };
 		F60A8A0A1E5EEF00009F0B58 /* ConfidenceBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A8A091E5EEF00009F0B58 /* ConfidenceBar.swift */; };
+		F60A8A0D1E5FC200009F0B58 /* SelfieBotAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A8A0C1E5FC200009F0B58 /* SelfieBotAnalysisViewController.swift */; };
+		F60A8A0F1E5FC25A009F0B58 /* SelfieBotAnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60A8A0E1E5FC25A009F0B58 /* SelfieBotAnalysisViewModel.swift */; };
 		F68C6CA81E5AB35F0078C790 /* identityPoolID.txt in Resources */ = {isa = PBXBuildFile; fileRef = F68C6CA71E5AB35F0078C790 /* identityPoolID.txt */; };
 		F6B3E1151E56D668002CFF41 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F6B3E1141E56D668002CFF41 /* testImage.jpg */; };
 		F6B3E1171E57125F002CFF41 /* RekognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3E1161E57125F002CFF41 /* RekognitionManager.swift */; };
@@ -56,6 +58,8 @@
 		DB79462C1E59DA5300E25E82 /* PXPColorSpace.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXPColorSpace.swift; sourceTree = "<group>"; };
 		DB79462D1E59DA5300E25E82 /* PXPGradientColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PXPGradientColor.swift; sourceTree = "<group>"; };
 		F60A8A091E5EEF00009F0B58 /* ConfidenceBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfidenceBar.swift; sourceTree = "<group>"; };
+		F60A8A0C1E5FC200009F0B58 /* SelfieBotAnalysisViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieBotAnalysisViewController.swift; sourceTree = "<group>"; };
+		F60A8A0E1E5FC25A009F0B58 /* SelfieBotAnalysisViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfieBotAnalysisViewModel.swift; sourceTree = "<group>"; };
 		F68C6CA71E5AB35F0078C790 /* identityPoolID.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = identityPoolID.txt; sourceTree = "<group>"; };
 		F6B3E1141E56D668002CFF41 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
 		F6B3E1161E57125F002CFF41 /* RekognitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RekognitionManager.swift; sourceTree = "<group>"; };
@@ -127,13 +131,14 @@
 		DB3A050C1E56BD2B0062CBA3 /* Selfie-Bot */ = {
 			isa = PBXGroup;
 			children = (
+				F60A8A101E5FC282009F0B58 /* ViewModels */,
+				F60A8A0B1E5FC1E8009F0B58 /* Controllers */,
 				DB1D77951E5C80A300C82170 /* Image */,
 				DB1D779E1E5DC77900C82170 /* State */,
 				DB1D779B1E5DB60600C82170 /* Personality */,
 				DB7946271E59CA0400E25E82 /* Actions */,
 				DB3A055C1E5709EC0062CBA3 /* Views */,
 				DB3A050D1E56BD2B0062CBA3 /* AppDelegate.swift */,
-				DB3A050F1E56BD2B0062CBA3 /* ViewController.swift */,
 				F6B3E1141E56D668002CFF41 /* testImage.jpg */,
 				DB3A05141E56BD2B0062CBA3 /* Assets.xcassets */,
 				DB7946211E599E0800E25E82 /* SelfieBot.scn */,
@@ -185,6 +190,23 @@
 				06D8BB993DD9AA94B0F97A39 /* Pods-Selfie-Bot.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F60A8A0B1E5FC1E8009F0B58 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DB3A050F1E56BD2B0062CBA3 /* ViewController.swift */,
+				F60A8A0C1E5FC200009F0B58 /* SelfieBotAnalysisViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		F60A8A101E5FC282009F0B58 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F60A8A0E1E5FC25A009F0B58 /* SelfieBotAnalysisViewModel.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,10 +338,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F60A8A0F1E5FC25A009F0B58 /* SelfieBotAnalysisViewModel.swift in Sources */,
 				DB3A05101E56BD2B0062CBA3 /* ViewController.swift in Sources */,
 				F6B3E1171E57125F002CFF41 /* RekognitionManager.swift in Sources */,
 				DB1D779A1E5DB5CF00C82170 /* ChatView.swift in Sources */,
 				DB1D77A01E5DC7EA00C82170 /* AppState.swift in Sources */,
+				F60A8A0D1E5FC200009F0B58 /* SelfieBotAnalysisViewController.swift in Sources */,
 				DB79462E1E59DA5300E25E82 /* GradientView.swift in Sources */,
 				DB79462F1E59DA5300E25E82 /* PXPColorSpace.swift in Sources */,
 				DB3A050E1E56BD2B0062CBA3 /* AppDelegate.swift in Sources */,
