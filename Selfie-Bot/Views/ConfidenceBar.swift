@@ -33,7 +33,7 @@ class ConfidenceBar: UIView, CAAnimationDelegate {
         
         self.layer.backgroundColor = UIColor.lightGray.cgColor
         self.layer.addSublayer(gradientLayer)
-        self.layer.cornerRadius = 15
+        self.layer.cornerRadius = layer.bounds.height / 2
         self.layer.masksToBounds = true
         
         

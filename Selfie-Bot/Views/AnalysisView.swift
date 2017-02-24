@@ -33,7 +33,6 @@ class AnalysisView: UIView {
             confidenceLabel.snp.makeConstraints {
                 make in
                 
-                make.height.equalTo(30)
                 if let previousBar = previousBar {
                     make.top.equalTo(previousBar.snp.bottom).offset(10)
                 } else {
@@ -48,7 +47,7 @@ class AnalysisView: UIView {
                 
                 make.left.right.equalTo(self).inset(10)
                 make.top.equalTo(confidenceLabel.snp.bottom).offset(2.5)
-                make.height.equalTo(30)
+                make.height.equalTo(20)
             }
             previousBar = confidenceBar
         }
