@@ -11,7 +11,7 @@ class AnalysisView: UIView {
 
     var confidenceBars = [ConfidenceBar]()
     
-    init(options: [String : Int]) {
+    init(options: [String : Double]) {
         super.init(frame: CGRect())
         
         backgroundColor = UIColor.white
@@ -21,7 +21,7 @@ class AnalysisView: UIView {
         options.enumerated().forEach {
             option in
             
-            let confidenceBar = ConfidenceBar()
+            let confidenceBar = ConfidenceBar(CGFloat(option.element.value))
             let confidenceLabel = UILabel()
             
             confidenceLabel.text = option.element.key
