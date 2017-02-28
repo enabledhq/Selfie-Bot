@@ -11,10 +11,12 @@ import UIKit
 
 class SelfieBotAnalysisViewController: ViewController {
     private let viewModel: SelfieBotAnalysisViewModel
+    private let analysisView: AnalysisView
     
     init(viewModel: SelfieBotAnalysisViewModel) {
         self.viewModel = viewModel
-
+        analysisView = AnalysisView(options: viewModel.options)
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,8 +41,7 @@ class SelfieBotAnalysisViewController: ViewController {
         
         view.backgroundColor = UIColor.white
         
-        let analysisView = AnalysisView(options: viewModel.options)
-        
+
         view.addSubview(imageView)
         view.addSubview(selfieBotSaysLabel)
         view.addSubview(qouteLabel)
@@ -76,6 +77,9 @@ class SelfieBotAnalysisViewController: ViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        analysisView.animateConfidenceBars()
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

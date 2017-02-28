@@ -22,6 +22,7 @@ class AnalysisView: UIView {
             option in
             
             let confidenceBar = ConfidenceBar(CGFloat(option.element.value))
+            confidenceBars.append(confidenceBar)
             let confidenceLabel = UILabel()
             
             confidenceLabel.text = option.element.key
@@ -49,7 +50,18 @@ class AnalysisView: UIView {
                 make.top.equalTo(confidenceLabel.snp.bottom).offset(2.5)
                 make.height.equalTo(20)
             }
+            
+            
             previousBar = confidenceBar
+        }
+    }
+    
+    func animateConfidenceBars() {
+        var totalDelay: TimeInterval = 0.0
+        
+        confidenceBars.forEach {
+            $0.animate(afterDelay: totalDelay)
+            totalDelay += 0.2
         }
     }
 
