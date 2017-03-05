@@ -87,7 +87,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         selfieBotView.lookAt(point: point)
     }
     
-    private let testWords = ["I DON'T LIKE YOUR FACE", "THIS ONE HAS FLESHY CHEEKS", "UNIMPRESSED", "SELFIE BOT JUDGES YOU... POORLY", "SELFIE BOT HAS MUCH TO COMPLAIN ABOUT THIS LOW QUALITY FACE BUT LACKS THE ROOM IN WHICH TO DO IT"]
+    private let testWords = ["I DON'T LIKE YOUR FACE", "THIS ONE HAS FLESHY CHEEKS", "UNIMPRESSED", "SELFIE BOT JUDGES YOU... POORLY", "SELFIE BOT HAS MUCH TO COMPLAIN ABOUT THIS LOW QUALITY FACE BUT LACKS THE ROOM IN WHICH TO DO IT", "HA HA HA HA HA HA HA HA HA.\n\nHA HA HA HA"]
     private var testWordIndex = 0
     
     @objc private func viewDoubleTapped(_ sender: UITapGestureRecognizer) {
