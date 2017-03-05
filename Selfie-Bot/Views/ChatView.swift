@@ -13,7 +13,7 @@ protocol ChatViewContent {
     
     var view: UIView { get }
     
-    func update(elapsedTime: TimeInterval, duration: TimeInterval)
+    func update(_ originalView: UIView, elapsedTime: TimeInterval, duration: TimeInterval)
 }
 
 class ChatView: UIView {
@@ -23,6 +23,8 @@ class ChatView: UIView {
     private var elapsedTime: TimeInterval = 0.0
     private var chatContent: [ContentQueueItem] = []
     private var displayLink: CADisplayLink!
+    
+    private let outerContainer = UIView()
     private let contentContainer = UIView()
     private var activeContentView: UIView?
     
@@ -31,11 +33,42 @@ class ChatView: UIView {
         
         displayLink = CADisplayLink(target: self, selector: #selector(displayUpdate(_:)))
         displayLink.isPaused = true
-        displayLink.add(to: RunLoop.current, forMode: .defaultRunLoopMode)
+        displayLink.add(to: .current, forMode: .defaultRunLoopMode)
+        
+        alpha = 0.0
+        
+        addSubview(outerContainer)
+        
+        outerContainer.layer.cornerRadius = 6.0
+        
+        outerContainer.snp.makeConstraints {
+            make in
+            
+            make.edges.equalTo(self)
+        }
+        
+        outerContainer.addSubview(contentContainer)
+        
+        contentContainer.snp.makeConstraints {
+            make in
+            
+            make.edges.equalTo(outerContainer).inset(12)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Background Color
+    
+    override var backgroundColor: UIColor? {
+        set {
+            outerContainer.backgroundColor = newValue
+        }
+        get {
+            return outerContainer.backgroundColor
+        }
     }
     
     //MARK: - Presentation
@@ -44,8 +77,12 @@ class ChatView: UIView {
         chatContent.append((content, duration))
         
         if chatContent.count == 1 {
-            //Start presenting this content immediately
-            displayLink.isPaused = false
+            //Start presenting this content after we fade in
+            UIView.animate(withDuration: 0.1, animations: {
+                self.alpha = 1.0
+            }, completion: { finished in
+                self.displayLink.isPaused = false
+            })
         }
     }
     
@@ -55,6 +92,11 @@ class ChatView: UIView {
         
         guard chatContent.count > 0 else {
             sender.isPaused = true
+            
+            UIView.animate(withDuration: 0.1, animations: {
+                self.alpha = 0.0
+            })
+            
             return
         }
         
@@ -69,6 +111,11 @@ class ChatView: UIView {
                 
                 make.edges.equalTo(contentContainer)
             }
+            
+            setNeedsLayout()
+            UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.95, options: [], animations: {
+                self.layoutIfNeeded()
+            }, completion: nil)
         }
         
         if elapsedTime > duration {
@@ -79,7 +126,7 @@ class ChatView: UIView {
             return
         }
         
-        content.update(elapsedTime: elapsedTime, duration: duration)
+        content.update(activeContentView!, elapsedTime: elapsedTime, duration: duration)
         elapsedTime += sender.duration
     }
 
@@ -88,11 +135,30 @@ class ChatView: UIView {
 extension String: ChatViewContent {
     var view: UIView {
         let label = UILabel()
+        
+        label.font = UIFont.systemFont(ofSize: 22, weight: UIFontWeightBlack)
+        label.attributedText = NSAttributedString(string: self, attributes: [NSForegroundColorAttributeName : UIColor.clear])
         label.text = self
+        label.numberOfLines = 0
+        label.textColor = .white
         
         return label
     }
     
-    func update(elapsedTime: TimeInterval, duration: TimeInterval) {
+    func update(_ originalView: UIView, elapsedTime: TimeInterval, duration: TimeInterval) {
+        guard let label = originalView as? UILabel else {
+            return
+        }
+        
+        //y = -(1 / (x+1)) + 1
+        let revealDuration = (-(1/(duration + 1)) + 1) * duration
+        
+        let count = Double(self.characters.count)
+        let visibleCharacterCount = Int(min(elapsedTime / revealDuration, 1.0) * count)
+        
+        let attribString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName : UIColor.clear])
+        attribString.setAttributes([NSForegroundColorAttributeName : UIColor.white], range: NSMakeRange(0, visibleCharacterCount))
+        
+        label.attributedText = attribString
     }
 }

@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     private let cameraButton = UIButton()
     private let selfieBotView = SelfieBotView()
+    private let chatView = ChatView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,18 +57,24 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             make.edges.equalTo(0)
         }
         
+        chatView.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        view.addSubview(chatView)
+        
+        chatView.snp.makeConstraints {
+            make in
+            
+            make.centerX.equalTo(view)
+            make.top.equalTo(view).offset(120)
+            make.width.lessThanOrEqualTo(view).inset(40)
+        }
+        
         let tap = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         view.addGestureRecognizer(tap)
         
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(viewDoubleTapped(_:)))
         doubleTap.numberOfTapsRequired = 2
         view.addGestureRecognizer(doubleTap)
-        
-        chat.present("I DON'T LIKE YOUR FACE", duration: 2.0)
-        chat.present("I REALLY LIKE YOUR FACE", duration: 2.0)
     }
-    
-    private let chat = ChatView()
     
     //MARK: - Actions
 
@@ -77,12 +84,34 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         //TODO: point should be converted to selfieBotView coords, but doesn't make a difference in this instance
         
-        selfieBotView.lookAt(point: point)        
+        selfieBotView.lookAt(point: point)
     }
+    
+    private let testWords = ["I DON'T LIKE YOUR FACE", "THIS ONE HAS FLESHY CHEEKS", "UNIMPRESSED", "SELFIE BOT JUDGES YOU... POORLY", "SELFIE BOT HAS MUCH TO COMPLAIN ABOUT THIS LOW QUALITY FACE BUT LACKS THE ROOM IN WHICH TO SAY IT"]
+    private var testWordIndex = 0
     
     @objc private func viewDoubleTapped(_ sender: UITapGestureRecognizer) {
         
-        selfieBotView.speakWords(wordCount: 3)
+        let phrase = testWords[testWordIndex]
+        
+        let taggerOptions: NSLinguisticTagger.Options = [.omitWhitespace, .omitPunctuation, .omitOther]
+        let tagger = NSLinguisticTagger(tagSchemes: [NSLinguisticTagSchemeLexicalClass], options: Int(taggerOptions.rawValue))
+        tagger.string = phrase
+        
+        var wordCount = 0
+        
+        print("\nEvaluating phrase")
+        tagger.enumerateTags(in: NSMakeRange(0, phrase.characters.count), scheme: NSLinguisticTagSchemeLexicalClass, options: taggerOptions) { (tag, tokenRange, _, _) in
+            
+            print("\((phrase as NSString).substring(with: tokenRange)) - tagged: \(tag)")
+            
+            wordCount += 1
+        }
+        
+        selfieBotView.speakWords(wordCount: wordCount)
+        chatView.present(phrase, duration: max(TimeInterval(wordCount) * 0.4, 1.0))
+        
+        testWordIndex = (testWordIndex + 1) % testWords.count
     }
     
     @objc private func cameraButtonPressed(_ sender: UIButton) {
