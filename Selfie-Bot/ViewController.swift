@@ -62,7 +62,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(viewDoubleTapped(_:)))
         doubleTap.numberOfTapsRequired = 2
         view.addGestureRecognizer(doubleTap)
+        
+        chat.present("I DON'T LIKE YOUR FACE", duration: 2.0)
+        chat.present("I REALLY LIKE YOUR FACE", duration: 2.0)
     }
+    
+    private let chat = ChatView()
     
     //MARK: - Actions
 
