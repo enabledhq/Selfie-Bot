@@ -154,10 +154,14 @@ extension String: ChatViewContent {
         let revealDuration = (-(1/(duration + 1)) + 1) * duration
         
         let count = Double(self.characters.count)
-        let visibleCharacterCount = Int(min(elapsedTime / revealDuration, 1.0) * count)
+        let visibleCharacterCount = Double(min(elapsedTime / revealDuration, 1.0) * count)
         
         let attribString = NSMutableAttributedString(string: self, attributes: [NSForegroundColorAttributeName : UIColor.clear])
-        attribString.setAttributes([NSForegroundColorAttributeName : UIColor.white], range: NSMakeRange(0, visibleCharacterCount))
+        attribString.setAttributes([NSForegroundColorAttributeName : UIColor.white], range: NSMakeRange(0, Int(floor(visibleCharacterCount))))
+        let partialAlpha = visibleCharacterCount - floor(visibleCharacterCount)
+        if partialAlpha > 0.0 {
+            attribString.setAttributes([NSForegroundColorAttributeName : UIColor(white: 1.0, alpha: CGFloat(partialAlpha))], range: NSMakeRange(Int(floor(visibleCharacterCount)), 1))
+        }
         
         label.attributedText = attribString
     }
