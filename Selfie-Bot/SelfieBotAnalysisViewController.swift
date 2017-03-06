@@ -24,6 +24,7 @@ class SelfieBotAnalysisViewController: ViewController {
         let imageView = UIImageView(image: viewModel.image)
         let selfieBotSaysLabel = UILabel()
         let qouteLabel = UILabel()
+        let textColor = UIColor(colorLiteralRed: 140 / 255, green: 140 / 255, blue: 140 / 255, alpha: 1)
         
         //Drop Shadow
         imageView.layer.shadowOffset = CGSize(width: -1.0, height: -1.0)
@@ -33,11 +34,14 @@ class SelfieBotAnalysisViewController: ViewController {
         
         selfieBotSaysLabel.textAlignment = .center
         selfieBotSaysLabel.text = "Selfie bot says"
-        selfieBotSaysLabel.font = UIFont.systemFont(ofSize: 17.0, weight: 1.0)
+        selfieBotSaysLabel.textColor = textColor
+        
         
         qouteLabel.textAlignment = .center
         qouteLabel.text = viewModel.qoute
         qouteLabel.numberOfLines = 0
+        qouteLabel.font = UIFont.init(name: "ChalkboardSE-Light", size: 17)
+        qouteLabel.textColor = textColor
         
         view.backgroundColor = UIColor.white
         

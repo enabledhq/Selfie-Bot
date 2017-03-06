@@ -13,6 +13,7 @@ class AnalysisView: UIView {
     
     init(options: [String : Double]) {
         super.init(frame: CGRect())
+        let textColor = UIColor(colorLiteralRed: 140 / 255, green: 140 / 255, blue: 140 / 255, alpha: 1)
         
         backgroundColor = UIColor.white
         
@@ -26,6 +27,7 @@ class AnalysisView: UIView {
             let confidenceLabel = UILabel()
             
             confidenceLabel.text = option.element.key
+            confidenceLabel.textColor = textColor
 
 
             self.addSubview(confidenceLabel)
