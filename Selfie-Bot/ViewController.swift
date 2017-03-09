@@ -140,6 +140,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let image = AWSRekognitionImage()
             image?.bytes = data
             request?.image = image
+            request?.attributes = ["ALL"]
             AWSRekognition.default().detectFaces(request!).continueOnSuccessWith {
                 $0.result?.faceDetails?.forEach {
                     print($0.confidence!)
