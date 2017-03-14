@@ -76,8 +76,8 @@ class SelfieBotAnalysisViewController: ViewController {
         analysisView.snp.makeConstraints {
             make in
             
-            make.top.equalTo(qouteLabel).inset(40)
-            make.left.right.equalTo(view).inset(50  )
+            make.top.equalTo(qouteLabel.snp.bottom).offset(20)
+            make.left.right.equalTo(view).inset(50)
         }
     }
     
